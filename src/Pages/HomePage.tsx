@@ -1,26 +1,15 @@
 import Header from "../components/Header";
 import './home.less'
-import axios from "axios";
-import { useState } from "react";
-
 import { type Post } from "../types";
 
 interface Props {
-    post: Post
+    posts: Post[]
 }
 
-
-
-
-export default function HomePage({post}: Props) {
-
-    const [posts, setPosts] = useState<Post[]>([]);
-    axios.get('/posts.json').then(res => {
-        setPosts(res.data);
-    })
-    return(
+export default function HomePage({ posts }: Props) {
+    return (
         <main>
-            <Header/>   
+            <Header />
             <div className="container">
                 <h1>Welcome</h1>
                 <article className="content">
